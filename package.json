@@ -6,12 +6,16 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "cookie-parser": "^1.4.5",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "font-awesome": "^4.7.0",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "jquery": "^3.6.0",
+    "morgan": "~1.9.1",
+    "popper.js": "^1.16.1"
   },
   "description": "Express Generator Demo",
   "main": "server.js",
