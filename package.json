@@ -1,5 +1,5 @@
 {
-  "name": "comp308-w2021-lesson3a",
+  "name": "comp308-w2021-lesson4a",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -18,11 +18,23 @@
     "font-awesome": "^4.7.0",
     "http-errors": "~1.6.3",
     "jquery": "^3.6.0",
+    "mongoose": "^5.12.5",
     "morgan": "~1.9.1",
     "popper.js": "^1.16.1"
   },
   "description": "Express Generator Demo",
   "main": "server.js",
   "author": "Samuel",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mongoose": "^5.10.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SAMgit81/COMP308_W2021_Lesson4a.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SAMgit81/COMP308_W2021_Lesson4a/issues"
+  },
+  "homepage": "https://github.com/SAMgit81/COMP308_W2021_Lesson4a#readme"
 }
