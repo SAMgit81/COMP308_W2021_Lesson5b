@@ -8,17 +8,17 @@ let contact = require('../models/contact');
 //Get Contact 
 router.get('/', (req, res, next) => {
     contact.find((err, contactList) => {
-        if(err){
+        if (err) {
             return console.error(err);
         }
         else {
-            console.log(contactList);
-            /* 
-            res.render('contacts/index, '){
-            title: 'Contact List', 
-            contactList: contactList
-            }
-            */
+            
+            
+            res.render('contacts/index', {
+                title: 'Contact List',
+                contactList: contactList
+            });
+            
         }
     });
 });
