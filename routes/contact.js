@@ -39,6 +39,7 @@ router.post('/add', (req, res, next) => {
         "age": req.body.age
     });
 
+
     contactModel.create(newContact, (err, contactModel) => {
         if (err) {
             console.log(err);
@@ -48,6 +49,44 @@ router.post('/add', (req, res, next) => {
             res.redirect('/contact-list');
         }
     });
+    
+});
+
+router.get('/edit/:id', (req, res, next) => {
+    let id = req.params.id;
+    contactModel.findById(id, (err, contactObject) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        else {
+            res.render('contacts/edit', {
+                title: 'Edit Contact',
+                contact: contactObject
+            });
+        }
     });
+});
+
+// Post Request to update data from edit page
+
+router.post('/edit/:id', (req, res, next) => {
+    let id = req.params.id;
+    let updatedContact = contactModel({
+        "_id": id,
+        "firstname": req.body.firstname,
+        "lastname": req.body.lastname,
+        "age": req.body.age
+    });
+
+    contactModel.update({ _id: id }, updatedContact, (err) => {
+  if (err) {
+        console.log(err);
+        res.end(err);
+    }
+    else {
+        res.redirect('/contact-list');
+    }
+    });
+});
 module.exports = router;
-//structure to work with new 
