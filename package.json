@@ -1,5 +1,5 @@
 {
-  "name": "comp308-w2021-lesson4a",
+  "name": "comp308-w2021-lesson5b",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -22,7 +22,7 @@
     "morgan": "~1.9.1",
     "popper.js": "^1.16.1"
   },
-  "description": "Express Generator Demo",
+  "description": "Crud Demo",
   "main": "server.js",
   "author": "Samuel",
   "license": "ISC",

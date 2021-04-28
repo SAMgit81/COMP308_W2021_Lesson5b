@@ -1,25 +1,37 @@
 <% include ../partials/header.ejs %>
-<!--embebed content here-->
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6"></div>
-       <h1><%= title %></h1>
-       <br>
-       <table class="table table-bordered table-striped table-hover">
-           <tr>
-               <th class="text-center">First Name</th>
-               <th class="text-center">Last Name</th>
-               <th class="text-center">Age</th>
-           </tr>
-           <!--Repeatable Template Row-->
-           <%for(let count = 0; count < contactList.length; count++) { %>
-        <tr>
-            <td class="text-center"><%= contactList[count].firstname %></td>
-            <td class="text-center"><%= contactList[count].lastname %></td>
-            <td class="text-center"><%= contactList[count].age %></td>
-        </tr>
-            <% } %>
-       </table>
+    <!--embebed content here-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6"></div>
+            <h1>
+                <%= title %>
+            </h1>
+            <br>
+            
+            <br>
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th class="text-center">First Name</th>
+                    <th class="text-center">Last Name</th>
+                    <th class="text-center">Age</th>
+                </tr>
+                <!--Repeatable Template Row-->
+                <%for(let count=0; count < contactList.length; count++) { %>
+                    <tr>
+                        <td class="text-center">
+                            <%= contactList[count].firstname %>
+                        </td>
+                        <td class="text-center">
+                            <%= contactList[count].lastname %>
+                        </td>
+                        <td class="text-center">
+                            <%= contactList[count].age %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+            <a class="btn btn-primary" href="/contact-list/add" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add a
+                Contact</a>
+        </div>
     </div>
-</div>
-<% include ../partials/footer.ejs %>
+    <% include ../partials/footer.ejs %>
