@@ -1,92 +1,25 @@
 let express = require('express');
 let router = express.Router();
-let mongoose = require('mongoose');
+//let mongoose = require('mongoose');
 
 //creatte a reference to the db schema
-let contactModel = require('../models/contact');
-
+let contactController = require('../controllers/contact');
 //Get Contact 
-router.get('/', (req, res, next) => {
-    contactModel.find((err, contactList) => {
-        if (err) {
-            return console.error(err);
-        }
-        else {
-            
-            
-            res.render('contacts/index', {
-                title: 'Contact List',
-                contactList: contactList
-            });
-            
-        }
-    });
-});
-
+router.get('/', contactController.displayContactList);
 //Get Route for the Add page
 //this will display add page
-router.get('/add', (req, res, next) => {
-    res.render('contacts/add', {
-        title: 'Add new Contact'
-    });
-});
+router.get('/add', contactController.displayAddList);
 
 //Post Route for the Add page
-router.post('/add', (req, res, next) => {
-    let newContact = contactModel({
-        "firstname": req.body.firstname,
-        "lastname": req.body.lastname,
-        "age": req.body.age
-    });
+router.post('/add', contactController.processAddPage);
 
+//Get Edit Page
+router.get('/edit/:id', contactController.displayEditPage);
 
-    contactModel.create(newContact, (err, contactModel) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        }
-        else {
-            res.redirect('/contact-list');
-        }
-    });
-    
-});
+/* POST request - Update the database with data from the Edit Page */
+router.post('/edit/:id', contactController.processEditPage);
 
-router.get('/edit/:id', (req, res, next) => {
-    let id = req.params.id;
-    contactModel.findById(id, (err, contactObject) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        }
-        else {
-            res.render('contacts/edit', {
-                title: 'Edit Contact',
-                contact: contactObject
-            });
-        }
-    });
-});
+//Get Delete Page
+router.get('/delete/:id', contactController.performDelete);
 
-// Post Request to update data from edit page
-
-router.post('/edit/:id', (req, res, next) => {
-    let id = req.params.id;
-    let updatedContact = contactModel({
-        "_id": id,
-        "firstname": req.body.firstname,
-        "lastname": req.body.lastname,
-        "age": req.body.age
-    });
-
-    contactModel.update({ _id: id }, updatedContact, (err) => {
-  if (err) {
-        console.log(err);
-        res.end(err);
-    }
-    else {
-        res.redirect('/contact-list');
-    }
-    });
-});
 module.exports = router;
