@@ -1,5 +1,5 @@
 {
-  "name": "comp308-w2021-lesson5b",
+  "name": "comp308-w2021-lesson6b",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -31,10 +31,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SAMgit81/COMP308_W2021_Lesson4a.git"
+    "url": "git+https://github.com/SAMgit81/COMP308_W2021_Lesson6b.git"
   },
   "bugs": {
-    "url": "https://github.com/SAMgit81/COMP308_W2021_Lesson4a/issues"
+    "url": "https://github.com/SAMgit81/COMP308_W2021_Lesson6b/issues"
   },
-  "homepage": "https://github.com/SAMgit81/COMP308_W2021_Lesson4a#readme"
+  "homepage": "https://github.com/SAMgit81/COMP308_W2021_Lesson6b#readme"
 }
